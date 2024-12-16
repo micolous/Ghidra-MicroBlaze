@@ -41,8 +41,6 @@ define context imm_contextreg
 @define MSR_C     "msr[29,1]"
 @define MSR_IE    "msr[30,1]"
 
-@if ENDIAN == "little"
-
 define token instr(32)
       op05 = (26,31)
       op610 = (21,25)
@@ -70,40 +68,6 @@ define token instr(32)
       imm15= (0,14)
       fsl = (0,3)
 ;
-
-@else # ENDIAN == "big"
-define token instr(32)
-      op05 = (0,5)
-      op610 = (6,10)
-      op2131 = (21,31)
-      op1620 = (16,20)
-      op1631 = (16,31)
-      op1617 = (16,17)
-      op1115 = (11,15)
-      op1116 = (11,16)
-      op2626 = (26,26)
-      op2126 = (21,26)
-      op1627 = (16,27)
-
-      rD = (6,10)
-      rA = (11,15)
-      rB = (16,20)
-      rA_zero = (11,15)
-      rB_zero = (16,20)
-      rS = (21,31)
-      imm = (16,31)
-      
-      immw = (21,25)
-      imms = (27,31) 
-      imm3 = (6,10)
-      imm14= (18,31)
-      imm15= (17,31)
-      fsl = (28,31)
-;
-
-@endif # ENDIAN = "big"
-
-
 
 
 attach variables [ rD rA rB ] [ r0 r1 r2 r3 r4 r5 r6 r7	r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 r31 ];
